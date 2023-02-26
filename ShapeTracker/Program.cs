@@ -8,6 +8,8 @@ namespace ShapeTracker
   {
     static void Main()
     {
+      Console.BackgroundColor = ConsoleColor.Magenta;
+      Console.Beep();
       Console.WriteLine("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
       Console.WriteLine("Welcome to the Shape Tracker app!");
       Console.WriteLine("We'll calculate what type of triangle you have based off of the lengths of the triangle's 3 sides.");
@@ -17,11 +19,21 @@ namespace ShapeTracker
       string stringNumber2 = Console.ReadLine();  
       Console.WriteLine("Enter a third number:");
       string stringNumber3 = Console.ReadLine();  
+      try
+      {      
       int length1 = int.Parse(stringNumber1);  
       int length2 = int.Parse(stringNumber2);  
       int length3 = int.Parse(stringNumber3);  
       Triangle tri = new Triangle(length1, length2, length3);
       ConfirmOrEditTriangle(tri);
+      }
+      catch
+      {
+        Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        Console.WriteLine("ERROR: Please only enter in numbers! Special symbols and alphabetic characters will not be accepted.");
+        Console.WriteLine("Please try again...");
+        Main();
+      }     
     }
 
     static void ConfirmOrEditTriangle(Triangle tri)

@@ -168,5 +168,7 @@ namespace ShapeTracker.Tests
       // Assert
       CollectionAssert.AreEqual(expected, Triangle.GetAll());
     }
+
+    
   }
 }
